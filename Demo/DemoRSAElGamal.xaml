@@ -1,0 +1,49 @@
+﻿<Window x:Class="RSA_ELGAMAL.DemoRSAElGamal"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Demo mã hóa Elgamal" Height="589" Width="945" WindowStartupLocation="CenterScreen">
+    <Grid Margin="5,5,5,5">
+        <Grid HorizontalAlignment="Left" Height="526" Margin="10,10,0,0" VerticalAlignment="Top" Width="907">
+            <Grid>
+                <Grid Background="#FFE5E5E5" Margin="5,5,5,5">
+                    <Label Content="Tạo khóa" Margin="10,8,774,424" />
+                    <RadioButton Content="Tạo khóa tự động" x:Name="rd_td" HorizontalAlignment="Left" Margin="14,44,0,0" VerticalAlignment="Top" Checked="rd_td_Checked"/>
+                    <RadioButton Content="Tạo khóa tùy chọn" x:Name="rd_tc" HorizontalAlignment="Left" Margin="14,64,0,0" VerticalAlignment="Top" Checked="rd_tc_Checked"/>
+                    <Label Content="Public Key (p,a,d)" HorizontalAlignment="Left" Margin="14,177,0,0" VerticalAlignment="Top"/>
+                    <Label Content="(Số nguyên tố) p = " HorizontalAlignment="Left" Margin="48,208,0,0" VerticalAlignment="Top"/>
+                    <Label Content="(Số alpha) a = " HorizontalAlignment="Left" Margin="74,236,0,0" VerticalAlignment="Top"/>
+                    <Label Content="(d= a^x mod p) d = " HorizontalAlignment="Left" Margin="42,271,0,0" VerticalAlignment="Top"/>
+                    <Label Content="Private key (x)" HorizontalAlignment="Left" Margin="14,103,0,0" VerticalAlignment="Top"/>
+                    <Label Content="Số nguyên x =" HorizontalAlignment="Left" Margin="74,142,0,0" VerticalAlignment="Top"/>
+                    <TextBox PreviewTextInput="el_soP_PreviewTextInput" HorizontalAlignment="Left" Height="23" Margin="161,142,0,0" TextWrapping="Wrap" x:Name="So_X" VerticalAlignment="Top" Width="86"/>
+                    <TextBox PreviewTextInput="el_soP_PreviewTextInput" HorizontalAlignment="Left" Height="23" Margin="161,208,0,0" TextWrapping="Wrap" x:Name="So_P" VerticalAlignment="Top" Width="86"/>
+                    <TextBox PreviewTextInput="el_soP_PreviewTextInput" HorizontalAlignment="Left" Height="23" Margin="161,239,0,0" TextWrapping="Wrap"  x:Name="So_A" VerticalAlignment="Top" Width="86"/>
+                    <TextBox PreviewTextInput="el_soP_PreviewTextInput" HorizontalAlignment="Left" Height="23" Margin="161,271,0,0" TextWrapping="Wrap"  x:Name="So_D" VerticalAlignment="Top" Width="120" IsEnabled="True"/>
+                    <Button Name="bt_taoKhoa" Content="Tạo khóa ngẫu nhiên" HorizontalAlignment="Left" Margin="74,318,0,0" VerticalAlignment="Top" Width="184" Height="28" Click="bt_taoKhoa_Click"/>
+                    <Label Content="Mã hóa" HorizontalAlignment="Left" Margin="308,4,0,0" VerticalAlignment="Top"/>
+                    <Label Content="Bản rõ" HorizontalAlignment="Left" Margin="308,35,0,0" VerticalAlignment="Top"/>
+                    <TextBox HorizontalAlignment="Left" Height="89" Margin="308,61,0,0" TextWrapping="Wrap" x:Name="txtBanRo" VerticalAlignment="Top" Width="251"/>
+                    <Label Content="Số ngẫu nhiên k =" HorizontalAlignment="Left" Margin="308,170,0,0" VerticalAlignment="Top"/>
+                    <Label Content="(Y=a^k mod p) Y =" HorizontalAlignment="Left" Margin="308,201,0,0" VerticalAlignment="Top"/>
+                    <Button Name="btMaHoa" Content="Thực hiện mã hóa" HorizontalAlignment="Left" Margin="350,239,0,0" VerticalAlignment="Top" Width="166" Height="27" Click="btMaHoa_Click"/>
+                    <TextBox PreviewTextInput="el_soP_PreviewTextInput" HorizontalAlignment="Left" Height="23" Margin="425,170,0,0" TextWrapping="Wrap" x:Name="So_K" VerticalAlignment="Top" Width="120"/>
+                    <TextBox PreviewTextInput="el_soP_PreviewTextInput" HorizontalAlignment="Left" Height="23" Margin="425,201,0,0" TextWrapping="Wrap" x:Name="So_Y" VerticalAlignment="Top" Width="120" IsEnabled="True"/>
+
+                    <Label Content="Giải mã" HorizontalAlignment="Left" Margin="595,2,0,0" VerticalAlignment="Top"/>
+                    <Label Content="Bản mã hóa nhận được:" HorizontalAlignment="Left" Margin="595,35,0,0" VerticalAlignment="Top"/>
+                    <TextBox HorizontalAlignment="Left" Height="104" Margin="308,318,0,0" TextWrapping="Wrap" x:Name="txt_maHoaBanRo" VerticalAlignment="Top" Width="251" IsEnabled="False"/>
+                    <TextBox HorizontalAlignment="Left" Height="151" Margin="595,61,0,0" TextWrapping="Wrap" x:Name="txt_banMaHoaNhanDuoc" VerticalAlignment="Top" Width="261" IsEnabled="False"/>
+
+                    <TextBox HorizontalAlignment="Left" Height="104" Margin="595,318,0,0" TextWrapping="Wrap" x:Name="txt_banGiaima" VerticalAlignment="Top" Width="261" IsEnabled="False"/>
+                    <Button Name="btGiaiMa" Content="Thực hiện giải mã" HorizontalAlignment="Left" Margin="621,239,0,0" VerticalAlignment="Top" Width="199" Height="27" Click="btGiaiMa_Click"/>
+                    <Label Content="Giải mã bản mã hóa nhận được bản rõ" HorizontalAlignment="Left" Margin="595,287,0,0" VerticalAlignment="Top"/>
+                    <Label Content="Bản rõ được mã hóa:" HorizontalAlignment="Left" Margin="314,287,0,0" VerticalAlignment="Top"/>
+                    <Button Name="btTaoBanRoMoi" Content="Tạo bản rõ mới" HorizontalAlignment="Left" Margin="621,433,0,0" VerticalAlignment="Top" Width="109" RenderTransformOrigin="0.933,-0.2" Click="btTaoBanRoMoi_Click"/>
+                    <Button Name="btThoat" Content="Thoát" HorizontalAlignment="Left" Margin="747,433,0,0" VerticalAlignment="Top" Width="75" Click="btThoat_Click"/>
+
+                </Grid>
+            </Grid>
+        </Grid>
+
+    </Grid>
+</Window>
